@@ -106,7 +106,7 @@ function setwebcam() {
                     devices.forEach(function (device) {
                         if (device.kind === 'videoinput') {
                             if (device.label.toLowerCase().search("back") > -1)
-                                options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
+                                options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': { 'exact': 'environment' } };
                         }
                         console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
                     });
@@ -116,8 +116,7 @@ function setwebcam() {
         catch (e) {
             console.log(e);
         }
-    }
-    else {
+    } else {
         console.log("no navigator.mediaDevices.enumerateDevices");
         setwebcam2(options);
     }
