@@ -1,6 +1,3 @@
-// QRCODE reader Copyright 2011 Lazar Laszlo
-// http://www.webqr.com
-
 var gCtx = null;
 var gCanvas = null;
 var c = 0;
@@ -10,25 +7,15 @@ var webkit = false;
 var moz = false;
 var v = null;
 
-// var imghtml = '<div id="qrfile"><canvas id="out-canvas" width="320" height="240"></canvas>' +
-//     '<div id="imghelp">drag and drop a QRCode here' +
-//     '<br>or select a file' +
-//     '<input type="file" onchange="handleFiles(this.files)"/>' +
-//     '</div>' +
-//     '</div>';
-
 var vidhtml = '<video id="v" autoplay></video>';
 
 function initCanvas(w, h) {
     gCanvas = document.getElementById("qr-canvas");
-    // gCanvas.style.width = w + "px";
-    // gCanvas.style.height = h + "px";
     gCanvas.width = w;
     gCanvas.height = h;
     gCtx = gCanvas.getContext("2d");
     gCtx.clearRect(0, 0, w, h);
 }
-
 
 function captureToCanvas() {
     if (stype != 1)
@@ -67,8 +54,8 @@ function isCanvasSupported() {
     var elem = document.createElement('canvas');
     return !!(elem.getContext && elem.getContext('2d'));
 }
-function success(stream) {
 
+function success(stream) {
     v.srcObject = stream;
     v.play();
 
@@ -97,7 +84,6 @@ function load() {
 }
 
 function setwebcam() {
-
     var options = true;
     if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
         try {
@@ -120,7 +106,6 @@ function setwebcam() {
         console.log("no navigator.mediaDevices.enumerateDevices");
         setwebcam2(options);
     }
-
 }
 
 function setwebcam2(options) {
