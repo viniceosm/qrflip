@@ -7,6 +7,8 @@ var webkit = false;
 var moz = false;
 var v = null;
 
+// teste
+
 var vidhtml = '<video id="v" autoplay></video>';
 
 function initCanvas(w, h) {
